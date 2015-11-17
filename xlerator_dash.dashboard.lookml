@@ -29,3 +29,14 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     show_null_labels: false
+
+  - name: Total_hours_Users
+    title: Annual User Hours
+    type: table
+    model: xlerator
+    explore: v_activity
+    dimensions: [v_activity.activity_year, v_users.user_name]
+    pivots: [v_activity.activity_year]
+    measures: [v_activity.total_minutes]
+    sorts: [v_activity.total_minutes desc 0]
+    limit: 500

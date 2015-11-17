@@ -37,7 +37,7 @@
 
   - dimension_group: date_recorded
     type: time
-    timeframes: [time, date, week, month]
+    timeframes: [date, week, month, year]
     sql: ${TABLE}.date_recorded
 
   - dimension: is_activity
