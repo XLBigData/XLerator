@@ -3,20 +3,18 @@
 - include: "*.view.lookml"       # include all the views
 - include: "*.dashboard.lookml"  # include all the dashboards
 
-- explore: activity
+- explore: v_activity
   joins:
-     - join: users
+     - join: v_users
        foreign_key: user_id
 
-     - join: customers
+     - join: v_customers
        foreign_key: customer_id
 
-     - join: projects
+     - join: v_projects
        foreign_key: project_id
 
-
-
-     - join: tasks
+     - join: v_tasks
        foreign_key: task_id
-
-   
+       
+- explore: v_customers

@@ -1,5 +1,5 @@
-- view: activity
-  sql_table_name: looker.Activity
+- view: v_activity
+  sql_table_name: looker.vActivity
   fields:
 
   - dimension_group: activity
