@@ -18,3 +18,15 @@
        foreign_key: task_id
        
 - explore: v_customers
+
+- explore: v_projects
+
+- explore: v_tasks
+  joins:
+     - join: v_customers
+       foreign_key: customer_id
+
+     - join: v_projects
+       foreign_key: project_id
+
+- explore: v_users

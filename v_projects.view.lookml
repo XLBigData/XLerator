@@ -2,6 +2,21 @@
   sql_table_name: looker.vProjects
   fields:
 
+# Primary Key
+  - dimension: project_id
+    primary_key: True
+    type: int
+    # hidden: true
+    sql: ${TABLE}.project_id
+    
+
+# Foreign Keys
+  - dimension: customer_id
+    type: int
+    sql: ${TABLE}.customer_id
+    
+
+# Dimensions
   - dimension: amount
     sql: ${TABLE}.amount
 
@@ -19,12 +34,6 @@
   - dimension: project_description
     sql: ${TABLE}.project_description
 
-  - dimension: project_id
-    primary_key: True
-    type: int
-    # hidden: true
-    sql: ${TABLE}.project_id
-
   - dimension: project_manager
     sql: ${TABLE}.project_manager
 
@@ -39,6 +48,7 @@
     timeframes: [time, date, week, month]
     sql: ${TABLE}.start_date
 
+# Measures
   - measure: count
     type: count
     drill_fields: [project_name, projects.project_id]

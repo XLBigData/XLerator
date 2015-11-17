@@ -2,6 +2,14 @@
   sql_table_name: looker.vUsers
   fields:
 
+#Primary Key
+  - dimension: user_id
+    primary_key: True
+    # hidden: true
+    sql: ${TABLE}.user_id
+    
+    
+# Dimensions    
   - dimension: email_address
     sql: ${TABLE}.email_address
 
@@ -18,14 +26,11 @@
   - dimension: is_suspended
     sql: ${TABLE}.is_suspended
 
-  - dimension: user_id
-    primary_key: True
-    # hidden: true
-    sql: ${TABLE}.user_id
-
   - dimension: user_name
     sql: ${TABLE}.user_name
 
+
+# Measures
   - measure: count
     type: count
     drill_fields: [user_name, users.user_id, users.first_name, users.last_name]

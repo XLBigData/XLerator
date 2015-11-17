@@ -2,6 +2,14 @@
   sql_table_name: looker.vCustomers
   fields:
 
+# Primary Key
+  - dimension: customer_id
+    primary_key: True
+    type: int
+    # hidden: true
+    sql: ${TABLE}.customer_id
+    
+# Dimensions    
   - dimension: account_manager
     sql: ${TABLE}.account_manager
 
@@ -13,12 +21,6 @@
 
   - dimension: city
     sql: ${TABLE}.city
-
-  - dimension: customer_id
-    primary_key: True
-    type: int
-    # hidden: true
-    sql: ${TABLE}.customer_id
 
   - dimension: customer_name
     sql: ${TABLE}.customer_name
@@ -41,6 +43,7 @@
   - dimension: zip_code
     sql: ${TABLE}.zip_code
 
+# Measures
   - measure: count
     type: count
     drill_fields: [customer_name, customers.customer_id]

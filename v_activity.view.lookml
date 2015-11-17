@@ -2,6 +2,28 @@
   sql_table_name: looker.vActivity
   fields:
 
+#Foreign Keys
+  - dimension: customer_id
+    type: int
+    # hidden: true
+    sql: ${TABLE}.customer_id
+    
+  - dimension: project_id
+    type: int
+    # hidden: true
+    sql: ${TABLE}.project_id
+
+  - dimension: task_id
+    type: int
+    # hidden: true
+    sql: ${TABLE}.task_id   
+    
+  - dimension: user_id
+    # hidden: true
+    sql: ${TABLE}.user_id
+   
+
+# Dimensions
   - dimension_group: activity
     type: time
     timeframes: [time, date, week, month]
@@ -12,11 +34,6 @@
 
   - dimension: activity_type
     sql: ${TABLE}.activity_type
-
-  - dimension: customer_id
-    type: int
-    # hidden: true
-    sql: ${TABLE}.customer_id
 
   - dimension_group: date_recorded
     type: time
@@ -47,28 +64,18 @@
   - dimension: is_xlg
     sql: ${TABLE}.is_xlg
 
-  - dimension: project_id
-    type: int
-    # hidden: true
-    sql: ${TABLE}.project_id
 
-  - dimension: task_id
-    type: int
-    # hidden: true
-    sql: ${TABLE}.task_id
 
-  - dimension: total_minutes
-    type: int
-    sql: ${TABLE}.total_minutes
 
-  - dimension: user_id
-    # hidden: true
-    sql: ${TABLE}.user_id
-
+# Measures
   - measure: count
     type: count
     drill_fields: detail*
 
+  - measure: total_minutes
+    type: sum
+    sql: ${TABLE}.total_minutes
+    drill_fields: detail*
 
   # ----- Sets of fields for drilling ------
   sets:

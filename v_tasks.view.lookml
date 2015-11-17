@@ -2,18 +2,33 @@
   sql_table_name: looker.vTasks
   fields:
 
+# Primary Key
+  - dimension: task_id
+    primary_key: True
+    type: int
+    # hidden: true
+    sql: ${TABLE}.task_id
+    
+    
+#Foreign Keys
+  - dimension: customer_id
+    type: int
+    # hidden: true
+    sql: ${TABLE}.customer_id
+    
+  - dimension: project_id
+    type: int
+    # hidden: true
+    sql: ${TABLE}.project_id
+
+
+# Dimensions
   - dimension: estimated_hours
     type: number
     sql: ${TABLE}.estimated_hours
 
   - dimension: task_description
     sql: ${TABLE}.task_description
-
-  - dimension: task_id
-    primary_key: True
-    type: int
-    # hidden: true
-    sql: ${TABLE}.task_id
 
   - dimension: task_name
     sql: ${TABLE}.task_name
@@ -27,6 +42,7 @@
   - dimension: task_type_name
     sql: ${TABLE}.task_type_name
 
+# Measures
   - measure: count
     type: count
     drill_fields: detail*
