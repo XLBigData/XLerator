@@ -4,22 +4,25 @@
 
 #Foreign Keys
   - dimension: customer_id
+    hidden: true
     type: int
-    # hidden: true
+    hidden: true
     sql: ${TABLE}.customer_id
     
   - dimension: project_id
+    hidden: true
     type: int
-    # hidden: true
+    hidden: true
     sql: ${TABLE}.project_id
 
   - dimension: task_id
+    hidden: true
     type: int
-    # hidden: true
+    hidden: true
     sql: ${TABLE}.task_id   
     
   - dimension: user_id
-    # hidden: true
+    hidden: true
     sql: ${TABLE}.user_id
    
 
@@ -40,28 +43,37 @@
     timeframes: [date, week, month, year]
     sql: ${TABLE}.date_recorded
 
+# Flags
   - dimension: is_activity
+    hidden: true
     sql: ${TABLE}.is_activity
 
   - dimension: is_daily_priorities
+    hidden: true
     sql: ${TABLE}.is_daily_priorities
 
   - dimension: is_declared_time_off
+    hidden: true
     sql: ${TABLE}.is_declared_time_off
 
   - dimension: is_travel
+    hidden: true
     sql: ${TABLE}.is_travel
 
   - dimension: is_unexpected_time_off
+    hidden: true
     sql: ${TABLE}.is_unexpected_time_off
 
   - dimension: is_weekly_priorities
+    hidden: true
     sql: ${TABLE}.is_weekly_priorities
 
   - dimension: is_wrapup
+    hidden: true
     sql: ${TABLE}.is_wrapup
 
   - dimension: is_xlg
+    hidden: true
     sql: ${TABLE}.is_xlg
 
 
@@ -80,20 +92,13 @@
   # ----- Sets of fields for drilling ------
   sets:
     detail:
-    - users.first_name
-    - users.last_name
-    - users.user_id
     - users.user_name
-    - customers.customer_id
     - customers.customer_name
-    - projects.project_id
     - projects.project_name
     - tasks.task_name
     - tasks.customer_fname
     - tasks.customer_lname
-    - tasks.task_id
     - tasks.task_name
     - tasks.task_owner_name
     - tasks.task_type_name
-    - workflow.count
 

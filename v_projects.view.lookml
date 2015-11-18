@@ -5,13 +5,14 @@
 # Primary Key
   - dimension: project_id
     primary_key: True
+    hidden: true
     type: int
-    # hidden: true
     sql: ${TABLE}.project_id
     
 
 # Foreign Keys
   - dimension: customer_id
+    hidden: true
     type: int
     sql: ${TABLE}.customer_id
     
@@ -22,7 +23,7 @@
 
   - dimension_group: end
     type: time
-    timeframes: [time, date, week, month]
+    timeframes: [date]
     sql: ${TABLE}.end_date
 
   - dimension: initial_setup_fee
@@ -45,11 +46,11 @@
 
   - dimension_group: start
     type: time
-    timeframes: [time, date, week, month]
+    timeframes: [date]
     sql: ${TABLE}.start_date
 
 # Measures
   - measure: count
     type: count
-    drill_fields: [project_name, projects.project_id]
+    drill_fields: [project_name]
 

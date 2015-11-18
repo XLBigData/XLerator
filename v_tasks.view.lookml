@@ -4,21 +4,21 @@
 
 # Primary Key
   - dimension: task_id
+    hidden: true
     primary_key: True
     type: int
-    # hidden: true
     sql: ${TABLE}.task_id
     
     
 #Foreign Keys
   - dimension: customer_id
+    hidden: true
     type: int
-    # hidden: true
     sql: ${TABLE}.customer_id
     
   - dimension: project_id
+    hidden: true
     type: int
-    # hidden: true
     sql: ${TABLE}.project_id
 
 
@@ -54,7 +54,7 @@
     - task_name
     - task_owner_name
     - task_type_name
-    - tasks.task_id
+    - tasks.task_status
     - tasks.task_name
     - tasks.customer_fname
     - tasks.customer_lname

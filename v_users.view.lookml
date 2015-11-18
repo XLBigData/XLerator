@@ -4,13 +4,17 @@
 
 #Primary Key
   - dimension: user_id
+    hidden: true
     primary_key: True
-    # hidden: true
     sql: ${TABLE}.user_id
     
     
-# Dimensions    
+# Dimensions   
+  - dimension: user_name
+    sql: ${TABLE}.user_name
+    
   - dimension: email_address
+    hidden: true
     sql: ${TABLE}.email_address
 
   - dimension: is_accountable
@@ -26,12 +30,11 @@
   - dimension: is_suspended
     sql: ${TABLE}.is_suspended
 
-  - dimension: user_name
-    sql: ${TABLE}.user_name
+
 
 
 # Measures
   - measure: count
     type: count
-    drill_fields: [user_name, users.user_id, users.first_name, users.last_name]
+    drill_fields: [user_name, users.first_name, users.last_name]
 
