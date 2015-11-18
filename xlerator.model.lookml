@@ -8,6 +8,9 @@
      - join: v_users
        foreign_key: user_id
 
+     - join: v_user_groups
+       foreign_key: user_id
+
      - join: v_customers
        foreign_key: customer_id
 

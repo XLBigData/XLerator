@@ -1,21 +1,36 @@
 - dashboard: xlerator_dash
   title: Xlerator Dash
   layout: tile
-  tile_size: 100
+  tile_size: 200
+  
+  auto_run: true
+  
+  filters:
+  # for security, this must come from an exposed explore
+  # this takes the full form (view_name.dimension_name)
+    
+  - name: my_reportdate
+    title: "Time Frame"
+    type: date_filter
+    default_value: 2014/01/01 to 2015/12/31
 
-#  filters:
 
   elements:
 
-  - name: Time_by_Customer
-    title: Top 20 Customers
-    type: looker_column
+  - name: Minutes_by_Customer
+    title: Minutes by Customer
+    type: looker_bar
     model: xlerator
     explore: v_activity
-    dimensions: [v_customers.customer_name]
+    dimensions: [v_customers.customer_name, v_activity.activity_date_year]
+    pivots: [v_activity.activity_date_year]
     measures: [v_activity.total_minutes]
-    sorts: [v_activity.total_minutes desc]
-    limit: 15
+    
+    listen:
+      my_reportdate:  v_activity.activity_date_year
+      
+    sorts: [v_customers.customer_name]
+    limit: 500
     stacking: ''
     show_value_labels: false
     x_axis_gridlines: false
@@ -30,6 +45,7 @@
     x_axis_scale: auto
     show_null_labels: false
 
+
   - name: Total_hours_Users
     title: Annual User Hours
     type: table
@@ -38,5 +54,9 @@
     dimensions: [v_activity.activity_date_year, v_users.user_name]
     pivots: [v_activity.activity_date_year]
     measures: [v_activity.total_minutes]
+    
+    listen:
+      my_reportdate:  v_activity.activity_date_year
+    
     sorts: [v_activity.total_minutes desc 0]
     limit: 500
