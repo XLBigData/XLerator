@@ -27,7 +27,7 @@
    
 
 # Dimensions
-  - dimension_group: activity
+  - dimension_group: activity_date
     type: time
     timeframes: [date, week, month, year]
     sql: ${TABLE}.activity_date
@@ -39,6 +39,7 @@
     sql: ${TABLE}.activity_type
 
   - dimension_group: date_recorded
+    hidden: true
     type: time
     timeframes: [date, week, month, year]
     sql: ${TABLE}.date_recorded

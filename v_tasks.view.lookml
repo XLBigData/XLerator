@@ -27,6 +27,15 @@
     type: number
     sql: ${TABLE}.estimated_hours
 
+  - dimension: priority
+    type: number
+    sql: ${TABLE}.priority
+
+  - dimension_group: due_date
+    type: time
+    timeframes: [date, week, month, year]
+    sql: ${TABLE}.due_date
+
   - dimension: task_description
     sql: ${TABLE}.task_description
 

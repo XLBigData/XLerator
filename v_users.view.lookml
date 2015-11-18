@@ -18,16 +18,20 @@
     sql: ${TABLE}.email_address
 
   - dimension: is_accountable
+    hidden: true
     sql: ${TABLE}.is_accountable
 
   - dimension: is_active
+    hidden: true
     type: yesno
     sql: ${TABLE}.is_active
 
   - dimension: is_responsible
+    hidden: true
     sql: ${TABLE}.is_responsible
 
   - dimension: is_suspended
+    hidden: true
     sql: ${TABLE}.is_suspended
 
 
@@ -36,5 +40,5 @@
 # Measures
   - measure: count
     type: count
-    drill_fields: [user_name, users.first_name, users.last_name]
+    drill_fields: [user_name]
 

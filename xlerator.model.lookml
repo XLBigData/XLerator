@@ -20,6 +20,10 @@
 - explore: v_customers
 
 - explore: v_projects
+  joins:
+     - join: v_customers
+       foreign_key: customer_id
+
 
 - explore: v_tasks
   joins:
@@ -30,3 +34,8 @@
        foreign_key: project_id
 
 - explore: v_users
+
+- explore: v_user_groups
+  joins:
+     - join: v_users
+       foreign_key: user_id

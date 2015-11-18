@@ -35,8 +35,8 @@
     type: table
     model: xlerator
     explore: v_activity
-    dimensions: [v_activity.activity_year, v_users.user_name]
-    pivots: [v_activity.activity_year]
+    dimensions: [v_activity.activity_date_year, v_users.user_name]
+    pivots: [v_activity.activity_date_year]
     measures: [v_activity.total_minutes]
     sorts: [v_activity.total_minutes desc 0]
     limit: 500
