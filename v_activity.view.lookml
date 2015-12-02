@@ -89,6 +89,11 @@
     type: sum
     sql: ${TABLE}.total_minutes
     drill_fields: detail*
+    
+  - measure: total_hours
+    type: sum
+    sql: ${TABLE}.total_minutes/60
+    drill_fields: detail*
 
   # ----- Sets of fields for drilling ------
   sets:
