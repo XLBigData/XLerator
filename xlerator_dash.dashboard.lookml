@@ -17,6 +17,23 @@
 
   elements:
 
+  - name: Project_Breakdown
+    title: Project Breakdown
+    type: looker_pie
+    model: xlerator
+    explore: v_activity
+    dimensions: [v_projects.project_name]
+    measures: [v_activity.total_minutes]
+    listen:
+      my_reportdate:  v_activity.activity_date_year
+    filters:
+      v_customers.customer_name: '"NAPA - Genuine Parts Company"'
+    sorts: [v_activity.total_minutes desc]
+    limit: 500
+    show_view_names: true
+    show_null_points: true
+
+
   - name: Minutes_by_Customer
     title: Minutes by Customer
     type: looker_bar
