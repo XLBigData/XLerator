@@ -29,7 +29,7 @@
 # Dimensions
   - dimension_group: activity_date
     type: time
-    timeframes: [date, week, month, year]
+    timeframes: [date, week, month, month_num, year]
     sql: ${TABLE}.activity_date
 
   - dimension: activity_description
@@ -41,7 +41,7 @@
   - dimension_group: date_recorded
     hidden: true
     type: time
-    timeframes: [date, week, month, year]
+    timeframes: [date, week, month, month_num, year]
     sql: ${TABLE}.date_recorded
 
 # Flags
