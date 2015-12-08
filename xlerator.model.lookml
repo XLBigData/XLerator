@@ -8,9 +8,6 @@
      - join: v_users
        foreign_key: user_id
 
-     - join: v_user_groups
-       foreign_key: user_id
-
      - join: v_customers
        foreign_key: customer_id
 
@@ -20,6 +17,7 @@
      - join: v_tasks
        foreign_key: task_id
        
+
 - explore: v_customers
 
 - explore: v_projects
@@ -38,7 +36,5 @@
 
 - explore: v_users
 
-- explore: v_user_groups
-  joins:
-     - join: v_users
-       foreign_key: user_id
+
+ 

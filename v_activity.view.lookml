@@ -101,6 +101,7 @@
     - users.user_name
     - customers.customer_name
     - projects.project_name
+    - usergroups.group_name
     - tasks.task_name
     - tasks.customer_fname
     - tasks.customer_lname

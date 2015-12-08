@@ -5,13 +5,19 @@
 #Primary Key
   - dimension: user_id
     hidden: true
-    primary_key: True
+    primary_key: true
     sql: ${TABLE}.user_id
     
     
 # Dimensions   
   - dimension: user_name
     sql: ${TABLE}.user_name
+  
+  - dimension: group_name
+    sql: ${TABLE}.group_name
+    
+  - dimension: hourly_billable_rate
+    sql: ${TABLE}.hourly_billable_rate
     
   - dimension: email_address
     hidden: true
@@ -40,5 +46,5 @@
 # Measures
   - measure: count
     type: count
-    drill_fields: [user_name]
+    drill_fields: [group_name,user_name]
 
