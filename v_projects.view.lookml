@@ -40,6 +40,9 @@
 
   - dimension: project_name
     sql: ${TABLE}.project_name
+ 
+  - dimension: customer_project_name
+    sql: ${TABLE}.project_name
 
   - dimension: project_status
     sql: ${TABLE}.project_status
@@ -52,5 +55,6 @@
 # Measures
   - measure: count
     type: count
-    drill_fields: [project_name]
+    drill_fields: [project_name, customer_project_name]
 
+  

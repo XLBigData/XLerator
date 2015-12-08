@@ -99,9 +99,10 @@
   sets:
     detail:
     - users.user_name
+    - users.group_name
     - customers.customer_name
     - projects.project_name
-    - usergroups.group_name
+    - projects.customer_project_name
     - tasks.task_name
     - tasks.customer_fname
     - tasks.customer_lname
