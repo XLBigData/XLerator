@@ -17,7 +17,7 @@
   - name: my_customername
     title: "Customer"
     type: field_filter 
-    explore: v_customers
+    explore: customers
     field: v_customers.customer_name
     default_value: '%NAPA%'
 

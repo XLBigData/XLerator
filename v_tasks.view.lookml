@@ -63,8 +63,10 @@
     - task_name
     - task_owner_name
     - task_type_name
-    - tasks.task_status
-    - tasks.task_name
-    - tasks.customer_fname
-    - tasks.customer_lname
+    - task_status
+    - task_name
+    - v_projects.project_name
+    - v_projects.customer_project_name
+    - v_projects.customer_name
+
 

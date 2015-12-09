@@ -46,5 +46,12 @@
 # Measures
   - measure: count
     type: count
-    drill_fields: [group_name,user_name]
+    drill_fields: detail*
 
+
+  # ----- Sets of fields for drilling ------
+  sets:
+    detail:
+    - group_name
+    - user_name
+   

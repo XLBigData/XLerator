@@ -54,5 +54,5 @@
 # Measures
   - measure: count
     type: count
-    drill_fields: [customer_name, customers.customer_id]
+    drill_fields: [customer_name]
 

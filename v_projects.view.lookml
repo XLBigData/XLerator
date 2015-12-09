@@ -4,8 +4,7 @@
 
 # Primary Key
   - dimension: project_id
-    primary_key: True
-    hidden: true
+    primary_key: true
     type: int
     sql: ${TABLE}.project_id
     
@@ -18,13 +17,17 @@
     
 
 # Dimensions
+  - dimension: project_name
+    sql: ${TABLE}.project_name
+    
+  - dimension: customer_name
+    sql: ${TABLE}.customer_name 
+    
+  - dimension: customer_project_name
+    sql: ${TABLE}.customer_project_name 
+    
   - dimension: amount
     sql: ${TABLE}.amount
-
-  - dimension_group: end
-    type: time
-    timeframes: [date]
-    sql: ${TABLE}.end_date
 
   - dimension: initial_setup_fee
     sql: ${TABLE}.initial_setup_fee
@@ -38,26 +41,23 @@
   - dimension: project_manager
     sql: ${TABLE}.project_manager
 
-  - dimension: project_name
-    sql: ${TABLE}.project_name
-    
-  - dimension: customer_name
-    sql: ${TABLE}.customer_name    
- 
-  - dimension: customer_project_name
-    sql: ${TABLE}.project_name
-
   - dimension: project_status
     sql: ${TABLE}.project_status
 
-  - dimension_group: start
+  - dimension_group: start_date
     type: time
     timeframes: [date]
     sql: ${TABLE}.start_date
 
+  - dimension_group: end_date
+    type: time
+    timeframes: [date]
+    sql: ${TABLE}.end_date
+    
+    
 # Measures
   - measure: count
     type: count
-    drill_fields: [customer_name, project_name, customer_project_name]
+    drill_fields: [project_name, customer_project_name]
 
   
