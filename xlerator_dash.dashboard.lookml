@@ -27,7 +27,7 @@
     title: Top 30 NAPA Projects
     type: looker_pie
     model: xlerator
-    explore: v_activity
+    explore: activity
     dimensions: [v_projects.project_name]
     measures: [v_activity.total_hours]
     listen:
@@ -42,7 +42,7 @@
     title: XLerator Hours Last 5 years
     type: looker_line
     model: xlerator
-    explore: v_activity
+    explore: activity
     dimensions: [v_activity.activity_date_year, v_activity.activity_date_month_num]
     pivots: [v_activity.activity_date_year]
     measures: [v_activity.total_hours]
@@ -72,7 +72,7 @@
     title: Hours by Customer
     type: looker_bar
     model: xlerator
-    explore: v_activity
+    explore: activity
     dimensions: [v_customers.customer_name, v_activity.activity_date_year]
     pivots: [v_activity.activity_date_year]
     measures: [v_activity.total_hours]
@@ -101,7 +101,7 @@
     title: Annual User Hours
     type: table
     model: xlerator
-    explore: v_activity
+    explore: activity
     dimensions: [v_activity.activity_date_year, v_users.user_name]
     pivots: [v_activity.activity_date_year]
     measures: [v_activity.total_hours]

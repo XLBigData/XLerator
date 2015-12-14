@@ -9,7 +9,7 @@
     hidden: true
     type: int
     sql: ${TABLE}.customer_id
-    
+
   - dimension: project_id
     hidden: true
     type: int
@@ -24,26 +24,49 @@
     hidden: true
     type: int
     sql: ${TABLE}.user_id
-    
+  
   - dimension: user_group_id
     hidden: true
     sql: ${TABLE}.user_group_id
+ 
     
   - dimension: activity_type_id
     hidden: true
     sql: ${TABLE}.activity_type_id
-    
-  - dimension: hour_filter
-    sql:
-      (SELECT hour_criteria
-        FROM looker.vActiveProjectsFilter a
-      WHERE v_activity.project_id = a.project_id
-      AND v_activity.user_group_id = a.user_group_id
-      AND v_activity.activity_type_id = a.activity_type_id
-      )
+ 
+ 
+# - dimension: hour_filter
+#    sql:
+#      (SELECT hour_criteria
+#        FROM looker.vActiveProjectsFilter a
+#      WHERE v_activity.project_id = a.project_id
+#      AND v_activity.user_group_id = a.user_group_id
+#      AND v_activity.activity_type_id = a.activity_type_id
+#     )
 
 
 # Dimensions
+
+  - dimension: customer_name
+    hidden: false
+    type: int
+    sql: ${TABLE}.customer_name
+    
+  - dimension: project_name
+    hidden: false
+    type: int
+    sql: ${TABLE}.project_name
+    
+  - dimension: task_name
+    hidden: false
+    type: int
+    sql: ${TABLE}.task_name  
+    
+  - dimension: group_name
+    hidden: false
+    type: int
+    sql: ${TABLE}.group_name   
+    
   - dimension_group: activity_date
     type: time
     timeframes: [date, week, month, month_num, year]
@@ -116,10 +139,10 @@
   sets:
     detail:
     - users.user_name
-    - users.group_name
-    - projects.customer_name
-    - projects.project_name
+    - activity.group_name
+    - activity.customer_name
+    - activity.project_name
     - projects.customer_project_name
-    - tasks.task_name
+    - activity.task_name
 
 

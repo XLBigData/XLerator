@@ -12,10 +12,13 @@
        
      - join: tasks
        from: v_tasks
+       foreign_key: v_activity.customer_id
+       foreign_key: v_activity.project_id
        foreign_key: v_activity.task_id
 
      - join: projects
        from : v_projects
+       foreign_key: v_activity.customer_id
        foreign_key: v_activity.project_id
 
 #     - join: activeprojectsfilter
@@ -47,6 +50,7 @@
   joins:
      - join: projects
        from: v_projects
+       foreign_key: v_tasks.customer_id
        foreign_key: v_tasks.project_id
        
   
